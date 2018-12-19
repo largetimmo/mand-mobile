@@ -10,7 +10,7 @@
         <div
           class="button-item"
           :key="index"
-          :class="{disabled: !!item.disabled}"
+          :class="{disabled: !!item.disabled,'button-active':item.isActive}"
           @click="$_onBtnClick($event, item)"
           v-html="item.text"
         ></div>
@@ -90,10 +90,7 @@ export default {
       -webkit-tap-highlight-color transparent
       &.disabled
         opacity action-bar-button-disabled-opacity
-      &:nth-last-of-type(2)
-        &::before
-          display none
-      &:last-of-type
+      .button-active
         background action-bar-button-fill-highlight
         color action-bar-button-color-highlight
         &.disabled
